@@ -16,9 +16,11 @@ if !has('python3') && !has('python')
 endif
 
 let s:pyx = 'python3 '
-exec s:pyx 'from netranger.hooker import RegisterHooker'
-exec s:pyx 'from netrangerDirIcon.netrangerDirIcon import node_highlight_content_l'
-exec s:pyx 'RegisterHooker(node_highlight_content_l)'
+exec s:pyx 'from netranger.api import RegisterHooker'
+exec s:pyx 'from netranger.api import NETRApi'
+exec s:pyx 'from netrangerDirIcon.netrangerDirIcon import NETRDirIcon'
+exec s:pyx 'netrDirIcon = NETRDirIcon(NETRApi)'
+exec s:pyx 'RegisterHooker(netrDirIcon.node_highlight_content_l)'
 
 
 let &cpo = s:save_cpo
