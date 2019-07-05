@@ -3,7 +3,7 @@ class NETRDirIcon(object):
         self.api = api
 
     def node_highlight_content_l(self, node):
-        if node.isDir:
+        if node.is_DIR:
             if node.expanded:
                 return '📂', 46
             else:
